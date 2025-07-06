@@ -5,7 +5,7 @@
         <ArrowLeftIcon class="h-4 w-4" />
         <span>Back</span>
       </RouterLink>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-30 mt-20 sm:gap-40">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-30 mt-20 sm:gap-40">
         <img :src="countryStore.country?.flags?.svg" :alt="countryStore.country.name" />
         <div class="pt-0 sm:pt-10">
           <h1 class="text-text text-2xl font-bold ">{{ countryStore.country.name }}</h1>
@@ -54,9 +54,11 @@
                 <RouterLink v-for="border in countryStore.country.borders" :key="border"
                   :to="{ name: 'Country', params: { alphaCode: border } }"
                   class="text-sm px-6 py-2 bg-background shadow-md flex-wrap">
-                  {{ border }}
+                  {{ countryStore.countryAlpaCodeToName()[border] }}
                 </RouterLink>
+
               </template>
+
             </div>
           </div>
         </div>
@@ -74,7 +76,7 @@ const route = useRoute()
 const { alphaCode } = route.params
 const countryStore = useCountryStore()
 countryStore.getCountry(alphaCode)
-watch(() => route.params, () => {
+watch(() => route.params, async (newCode) => {
   countryStore.getCountry(route.params.alphaCode)
 })
 

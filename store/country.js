@@ -53,9 +53,16 @@ export const useCountryStore = defineStore("country", () => {
         country.name.toLowerCase().includes(searchQuery.value.toLowerCase())
       );
     }
-
     return filtered;
   });
+
+  const countryAlpaCodeToName =  () => {
+    const countryMap = {};
+    countries.value.forEach((country) => {
+      countryMap[country.alpha3Code] = country.name;
+    });
+    return countryMap;
+  };
   return {
     countries,
     country,
@@ -69,5 +76,6 @@ export const useCountryStore = defineStore("country", () => {
     getCountry,
     countriesIsLoading,
     countryIsLoading,
+    countryAlpaCodeToName,
   };
 });
