@@ -9,7 +9,7 @@
         <img :src="countryStore.country?.flags?.svg" :alt="countryStore.country.name" />
         <div class="pt-0 sm:pt-10">
           <h1 class="text-text text-2xl font-bold ">{{ countryStore.country.name }}</h1>
-          <div class="grid grid-cols-2 mt-5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5">
             <div class="flex flex-col gap-y-2">
               <p class="text-text flex gap-3">
                 <span class="font-semibold text-md ">Native Name :</span>
