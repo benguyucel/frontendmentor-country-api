@@ -1,5 +1,5 @@
   <template>
-    <div class="xl:w-7xl mx-auto mt-10" v-if="!countryStore.countryIsLoading && countryStore.country">
+    <div class="xl:w-7xl mx-auto mt-10 px-4 xl:px-0" v-if="!countryStore.countryIsLoading && countryStore.country">
       <RouterLink to="/"
         class="w-30  text-sm py-4 gap-3  flex items-center justify-center text-text bg-background shadow-[0px_0px_10px_4px_rgba(0,_0,_0,_0.1)] ">
         <ArrowLeftIcon class="h-4 w-4" />
